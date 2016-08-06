@@ -15,11 +15,11 @@
 		}
 
 		function reboot() {
-			`{$this->Path} qboxcom "Вы уверены что хотите перезагрузить компьютер?" "question" exitwin reboot`;
+			`{$this->Path} exitwin reboot`;
 		}
 
 		function turnOff() {
-			`{$this->Path} qboxcom "Вы уверены что хотите выключить компьютер?" "question" exitwin poweroff`;
+			`{$this->Path} exitwin poweroff`;
 		}
 
 		function logout() {
@@ -55,11 +55,11 @@
 		}
 
 		function volUp() {
-			`{$this->Path} changesysvolume 2000`;
+			`{$this->Path} changesysvolume 3000`;
 		}
 
 		function volDown() {
-			`{$this->Path} changesysvolume -2000`;
+			`{$this->Path} changesysvolume -3000`;
 		}
 	}
 ?>

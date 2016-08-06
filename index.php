@@ -2,61 +2,56 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>ControlPC</title>
+	<link rel="stylesheet" href="style/style.css">
 </head>
 <body>
-	<button id="button">
-		Клик
-	</button>
+	<div class="wrapper"> 
+		<div class="other">
+			<button id="monitorOff">
+				Выключить монитор 
+			</button>
+
+			<button id="triggerMute">
+				Включить/отключить звук 
+			</button>
+			
+			<button id="volUp">
+				Громкость+ 
+			</button>
+			
+			<button id="volDown">
+				Громкость- 
+			</button>
+		</div>
+		<div class="start">
+			<button id="standby" data='qestion'>
+				Спящий режим
+			</button>
+
+			<button id="hibernate" data='qestion'>
+				Гибернация
+			</button>
+
+			<button id="reboot" data='qestion'>
+				Перезагрузить
+			</button>
+
+			<button id="turnOff" data='qestion'>
+				Выключить
+			</button>
+
+			<button id="logout" data='qestion'>
+				Выйти
+			</button>
+		</div>
+
+		
+		
+	</div>
 	
-	<script>
-
-	 var button = document.getElementById('button');
-	 button.addEventListener('click', ajaxf);
-
-	 function getXmlHttpRequest()
-{
-	if (window.XMLHttpRequest) 
-	{
-		try 
-		{
-			return new XMLHttpRequest();
-		} 
-		catch (e){}
-	} 
-	else if (window.ActiveXObject) 
-	{
-		try 
-		{
-			return new ActiveXObject('Msxml2.XMLHTTP');
-		} catch (e){}
-		try 
-		{
-			return new ActiveXObject('Microsoft.XMLHTTP');
-		} 
-		catch (e){}
-	}
-	return null;
-}
-
-	 function ajaxf() {
-	 	console.log('клик клик');
-	 	var com = {
-	 		 monitorOff: 1,
-	 	};
-		var xhr = new getXmlHttpRequest();
-		xhr.open('GET', 'remote.php?triggerMute=true', true);
-		xhr.send();
-		xhr.onreadystatechange = function() { 
-  			if (xhr.readyState != 4) return;
-  			if (xhr.status != 200) {
-    			console.log(xhr.status + ': ' + xhr.statusText);
-  			} else {
-   	 		console.log('отправлено');
-  			}
-	}
-
-	 }
-	</script>
+	
+	<script src="js/script.js"></script>	
 </body>
 </html>
