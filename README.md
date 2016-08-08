@@ -19,8 +19,18 @@
 * `volUp` - громкость больше
 * `volDown` - громкость меньше 
 
+# Установка
+* Скачать и установить [Open-server](http://open-server.ru/download/)
+* Создать и настроить в Open-Server домен, например mydomain.com
+* Склонировать репозиторий в папку домена 
+  * Можно одной командой: зайти в папку `OpenServer/domains` и набрать `git clone https://github.com/DmtryJS/WebRemotePC.git yourdomain.com`
+* Зайти по адресу `http://yourdomain.com/`
 
 # Attention machine translation
 
 Computer Management via a web interface. More to implement a remote control, to make the sound softer or simply turn off. Safety is not any, so let the Internet do not have to. It works on all the local Web server as part of OpenServer. Manages computer nirCmd utility.
 Implemented the following Functions:
+
+
+# English readme
+Coming soon..
