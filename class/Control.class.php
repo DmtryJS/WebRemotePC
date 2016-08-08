@@ -61,5 +61,19 @@
 		function volDown() {
 			`{$this->Path} changesysvolume -3000`;
 		}
+
+		function mediaNext() {
+			`{$this->Path} sendkey 0xB0 press`;
+		}
+
+		function mediaPrev() {
+			`{$this->Path} sendkey 0xB1 press`;
+		}
+		function mediaStop() {
+			`{$this->Path} sendkey 0xB2 press`;
+		}
+		function mediaPlayPause(){
+			`{$this->Path} sendkey 0xB3 press`;
+		}
 	}
 ?>

@@ -18,10 +18,9 @@ function getXmlHttpRequest(){
 
 wrapper.addEventListener('click', function(e){
 	var target = e.target;
-
 	if(target.tagName!= 'BUTTON') return;
 	if (target.getAttribute('data')=='qestion') {
-		var yn = confirm("Уверен?");
+		var yn = confirm(target.innerText + ", уверен?");
 		if (!yn) return
 			ajaxf(target.id);
 	}

@@ -10,12 +10,12 @@
 	width: 60%;
 	min-width: 350px;
 	padding: 15px;
-	background-color: #000;
+	background-color: #F5F6CE;
 	border-radius: 10px;
  	
  }
 
- .other,
+ .media,
  .start {
  	border:1px dashed grey;
  	border-radius:10px;

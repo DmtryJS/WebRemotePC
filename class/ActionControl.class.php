@@ -16,6 +16,10 @@ interface ActionControl{
 	function triggerMute(); //включить/отключить звук
 	function volUp(); //громкость больше
 	function volDown(); //громкость меньше
+	function mediaNext(); //медиакнопка следующий трек
+	function mediaPrev(); //медиакнопка предыдущий трек
+	function mediaStop(); //медиакнопка стоп
+	function mediaPlayPause(); //медиакнопка пауза играть
 
 }
 
