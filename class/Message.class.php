@@ -1,7 +1,12 @@
-<?
-	class Message {
-		static function sent($m) {
-			echo json_encode($m);
-		}
-	}
-?>
+<?php
+class Message {
+    /**
+     * Отправка сообщения
+     * @method sent
+     * @param string $messageText текст сообщения
+     * @return
+     */
+    public static function sent($messageText) {
+        echo json_encode($messageText);
+    }
+}

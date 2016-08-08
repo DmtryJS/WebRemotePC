@@ -1,28 +1,58 @@
-<?
-	class Route implements ActionRoute {
-		protected $possible = []; //массив со всеми возможными методами (получается из переданного объекта)		
-		protected $ControlObj;
-	
-		function __construct($obj) {
-			$this->possible = get_class_methods($obj); //получаем массив доступных методов
-			$this->ControlObj = $obj;
-		}
+<?php
 
-		function route($arr) { //метод проверят есть ли в пришедшем массиве и в доступных методах объекта метод 
-			forEach($arr as $key => $value) {	
-		   if (in_array($key, $this->possible) && $value == 'true') {
-		   	$this->execute($key);
-		   } else 
-		   	{
-		   		Message::sent('wrong method');
-		   	}	
-			}
-		}
+class Route implements ActionRoute
+{
+    /**
+     * массив со всеми возможными методами (получается из переданного объекта)
+     * @var []
+     */
+    protected $possible = [];
 
-		function execute($c) {
-			$this->ControlObj->$c();
-			Message::sent('executed');
-		}
+    /**
+     * [$controlObj какой-то объект
+     * @var [type]
+     */
+    protected $controlObj;
 
-	}
-?>
+    /**
+     * Конструктор
+     * @method __construct
+     * @param object $obj
+     */
+    public function __construct($obj)
+    {
+        // получаем массив доступных методов
+        $this->possible = get_class_methods($obj);
+        $this->controlObj = $obj;
+    }
+
+    /**
+     * Метод проверят есть ли в пришедшем массиве и в 
+     * доступных методах объекта метод
+     * @method route
+     * @param [type] $routes $_GET массив маршрутов
+     * @return
+     */
+    public function route($routes)
+    {
+        foreach ($routes as $key => $route) {
+            if (in_array($key, $this->possible) && $route == 'true') {
+                $this->execute($key);
+            } else {
+                Message::sent('Wrong method!');
+            }
+        }
+    }
+
+    /**
+     * Метод выполняет запуск команды
+     * @method execute
+     * @param [type] $ccommand [description]
+     * @return [type] [description]
+     */
+    public function execute($ccommand)
+    {
+        $this->controlObj->$ccommand();
+        Message::sent('executed');
+    }
+}

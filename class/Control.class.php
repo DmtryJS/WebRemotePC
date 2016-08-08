@@ -1,79 +1,199 @@
-<?
-	class Control implements ActionControl {
-		protected $Path; //путь до программы nirCmd;
-		
-		function __construct($p = 'C:/nircmd/nircmd.exe') {
-			$this->Path = $p;
-		}
+<?php
+    class Control implements ActionControl
+    {
+        protected $applicationPath;
 
-		function standby() {
-			`{$this->Path} standby`;
-		}
+        /**
+         * Конструктор
+         * @method __construct
+         * @param [type] $path [description]
+         */
+        public function __construct($path = 'C:/nircmd/nircmd.exe') {
+            $this->applicationPath = $path;
+        }
 
-		function hibernate() {
-			`rundll32 powrprof.dll,SetSuspendState 0,1,0`;
-		}
+        /**
+         * Метод выключает спящий режим 
+         * @method standby
+         * @return [type] [description]
+         */
+        public function standby()
+        {
+            `{$this->applicationPath} standby`;
+        }
 
-		function reboot() {
-			`{$this->Path} exitwin reboot`;
-		}
+        /**
+         * Метод включает гибернацию
+         * @method hibernate
+         * @return [type] [description]
+         */
+        public function hibernate()
+        {
+            `rundll32 powrprof.dll,SetSuspendState 0,1,0`;
+        }
 
-		function turnOff() {
-			`{$this->Path} exitwin poweroff`;
-		}
+        /**
+         * Метод перезагружает компьютер
+         * @method reboot
+         * @return [type] [description]
+         */
+        public function reboot()
+        {
+            `{$this->applicationPath} exitwin reboot`;
+        }
 
-		function logout() {
-			`{$this->Path} exitwin logoff`;
-		}
+        /**
+         * Метод выключает компьютер
+         * @method turnOff
+         * @return [type] [description]
+         */
+        public function turnOff()
+        {
+            `{$this->applicationPath} exitwin poweroff`;
+        }
 
-		function clickYes() {
-			`{$this->Path} dlg "" "" click yes`;
-		}
+        /**
+         * Метод завершает сеанс пользователя
+         * @method logout
+         * @return [type] [description]
+         */
+        public function logout()
+        {
+            `{$this->applicationPath} exitwin logoff`;
+        }
 
-		function clickNo() {
-			`{$this->Path} dlg "" "" click no`;
-		}
+        /**
+         * Метод выбриает в диалоге ДА
+         * @method clickYes
+         * @return [type] [description]
+         */
+        public function clickYes()
+        {
+            `{$this->applicationPath} dlg "" "" click yes`;
+        }
 
-		function monitorOff() {
-			`{$this->Path} monitor off`;
-		}
+        /**
+         * Метод выбриает в диалоге НЕТ 
+         * @method clickNo
+         * @return [type] [description]
+         */
+        public function clickNo()
+        {
+            `{$this->applicationPath} dlg "" "" click no`;
+        }
 
-		function monitorOn(){
-			`{$this->Path} monitor on`;
-		}
+        /**
+         * Метод выключчает монитор
+         * @method monitorOff
+         * @return [type] [description]
+         */
+        public function monitorOff()
+        {
+            `{$this->applicationPath} monitor off`;
+        }
 
-		function mute() {
-			`{$this->Path} mutesysvolume 1`;
-		}
+        /**
+         * Метод включает монитор
+         * @method monitorOn
+         * @return [type] [description]
+         */
+        public function monitorOn()
+        {
+            `{$this->applicationPath} monitor on`;
+        }
 
-		function unmute() {
-			`{$this->Path} mutesysvolume 0`;
-		}
+        /**
+         * Метод выключает звук на компьютере
+         * @method mute
+         * @return [type] [description]
+         */
+        public function mute()
+        {
+            `{$this->applicationPath} mutesysvolume 1`;
+        }
 
-		function triggerMute() {
-			`{$this->Path} mutesysvolume 2`;
-		}
+        /**
+         * Метод включает звук на компьютере
+         * @method unmute
+         * @return [type] [description]
+         */
+        public function unmute()
+        {
+            `{$this->applicationPath} mutesysvolume 0`;
+        }
 
-		function volUp() {
-			`{$this->Path} changesysvolume 3000`;
-		}
+        /**
+         * Метод переключает режим звука на включить/выключить
+         * @method triggerMute
+         * @return [type] [description]
+         */
+        public function triggerMute()
+        {   
+            `{$this->applicationPath} mutesysvolume 2`;
+        }
 
-		function volDown() {
-			`{$this->Path} changesysvolume -3000`;
-		}
+		  /**
+         * Метод увеличивает громкость системы на 3000 ед.
+         * @method volUp
+         * @return [type] [description]
+         */
+        public function volUp()
+        {
+            `{$this->applicationPath} changesysvolume 3000`;
+        }
 
-		function mediaNext() {
-			`{$this->Path} sendkey 0xB0 press`;
-		}
+        /**
+         * Метод уменьшает громкость системы на 3000 ед.
+         * @method volDown
+         * @return [type] [description]
+         */
+        public function volDown()
+        {
+            `{$this->applicationPath} changesysvolume -3000`;
+        }
 
-		function mediaPrev() {
-			`{$this->Path} sendkey 0xB1 press`;
-		}
-		function mediaStop() {
-			`{$this->Path} sendkey 0xB2 press`;
-		}
-		function mediaPlayPause(){
-			`{$this->Path} sendkey 0xB3 press`;
-		}
+        /**
+         * Метод воспроизводит нажатие медиа кнопки Next.
+         * @method mediaNext
+         * @return [type] [description]
+         */
+		  public function mediaNext() 
+		  {
+			`{$this->applicationPath} sendkey 0xB0 press`;
+		  }
+
+		  /**
+         * Метод воспроизводит нажатие медиа кнопки Prev.
+         * @method mediaPrev
+         * @return [type] [description]
+         */
+		  public function mediaPrev() 
+		  {
+			`{$this->applicationPath} sendkey 0xB1 press`;
+		  }
+
+		  /**
+         * Метод воспроизводит нажатие медиа кнопки Stop.
+         * @method mediaStop
+         * @return [type] [description]
+         */
+		  public function mediaStop() 
+		  {
+			`{$this->applicationPath} sendkey 0xB2 press`;
+		  }
+
+		  /**
+         * Метод воспроизводит нажатие медиа кнопки Play/Pause.
+         * @method mediaPlayPause
+         * @return [type] [description]
+         */
+		  public function mediaPlayPause()
+		  {
+			`{$this->applicationPath} sendkey 0xB3 press`;
+		  }
 	}
-?>
+
+
+        
+  
+
