@@ -23,10 +23,26 @@
 * `mediaStop` - нажатие медиа кнопки Stop
 * `mediaPlayPause` - нажатие медиа кнопки Play/pause
 
+# Установка
+* Скачать и установить [Open-server](http://open-server.ru/download/)
+* Клонировать репозиторий в папку domains
+   * Можно одной командой: зайти в папку `OpenServer/domains` и набрать `git clone https://github.com/DmtryJS/WebRemotePC.git
+* Открыть доступ клиентам в локальной сети Open-Server
+	* Переименовать папку localhost, в папке domains в любое другое имя.
+	* Настройки-> Сервер->IP Адрес сервера->Установить адрес который присвоен сетевому интерфейсу компьютера
+	* Настройки->Алиасы->Исходный домен->Вписать ip адрес присвоенный в предыдущем пункте
+	* Настройки->Алиасы->Конечный домен->Выбрать папку с распакованным проектом, по умолчанию (WebRemotePC).
+* Из папки OpenServer/domains/WebRemotePC распаковать содержимое архива nirCmd в корень диска С, должна получится следующая структура,- C:\nircmd\nircmd.exe (тестировалось на win10 32bit, на сайте автора можно скачать версию под 64x). 
+* Зайти по адресу http://your_ip/WebRemotePC опробовать в действии. 
 
-# Attention machine translation
+# Возможные проблемы
 
-#about the project
+* Команды не срабатывают
+	* Проверить работает ли nirCmd напрямую, запустить консоль в папке C:\nircmd\ попробовать выполнить команду "nirCmd.exe mutesysvolume 2", - если на прямую работает, переходим к следующему пункту, если нет идем на сайт автора и скачиваем другую версию [nirCmd](http://nircmd.nirsoft.net/)
+	* Если на предыдущем шаге все прошло успешно, значит в php запрещено исполнение команд. В настройках php.ini проверяем что бы значение safe_mode было true (Если у Вас php > 5.4.0) то там эта константа удалена. Поэтому гарантированный эффект дает выставление в настройках Open Server последней версии php 
+
+
+# about the project
 Computer Management via a web interface [PHP](http://php.net/), for example: to make the sound softer, louder or off. Safety is lame, let the Internet do not have to. It works on the local Web server as part of OpenServer. Manages computer tool [nirCmd](http://nircmd.nirsoft.net/).
 
 # Has the following features
