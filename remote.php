@@ -1,6 +1,6 @@
 <?
-    $applicationPatn = 'C:/nircmd/nircmd.exe'; // <-путь до программы управления nircmd.exe
-    define("PATH", $applicationPatn);
+    $applicationPath = 'C:/nircmd/nircmd.exe'; // <-путь до программы управления nircmd.exe
+    define("PATH", $applicationPath);
 
     function __autoload($name) {
         require "class/$name.class.php";
