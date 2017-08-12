@@ -37,7 +37,7 @@
 		</div>
 		<div class="start">
 			<button id="monitorOff" data='qestion'>
-				Выключить монитор 
+				Выключить монитор
 			</button>
 
 			<button id="standby" data='qestion'>
